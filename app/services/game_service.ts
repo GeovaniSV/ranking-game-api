@@ -14,10 +14,6 @@ export class GameService {
     const games = await db.from('games').where('user_id', userId).paginate(page, limit)
     if (!games || games.length === 0) throw new HTTPNotFoundException('Game not found')
 
-    console.log('morePages: ', games.hasMorePages)
-    console.log('pages: ', games.hasPages)
-    console.log('total: ', games.hasTotal)
-    console.log('total: ', Number(games.currentPage))
     if (games.hasMorePages) {
       games.getNextPageUrl
       games.getPreviousPageUrl
