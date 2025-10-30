@@ -2,7 +2,7 @@ import vine from '@vinejs/vine'
 
 const createGameValidator = vine.compile(
   vine.object({
-    name: vine.string().trim().optional(),
+    name: vine.string().trim(),
     description: vine.string().trim().optional(),
     review: vine.string().maxLength(120).trim(),
     score: vine.number().min(1).max(5),
